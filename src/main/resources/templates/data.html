@@ -1,0 +1,50 @@
+<div data-ng-show="authenticated" data-ng-app="mySpringApp"
+	data-ng-controller="dataController">
+	<h3>Enter Details:</h3>
+
+	<div class="">
+		<table class="">
+			<tr>
+				<td>Name:</td>
+				<td><input type="text" data-ng-model="empName" /></td>
+			</tr>
+			<tr>
+				<td>Job Description:</td>
+				<td><input type="text" data-ng-model="empDesc" /></td>
+			</tr>
+			<tr>
+				<td>Gender:</td>
+				<td><select data-ng-model="empGender"
+					data-ng-options="status as status for status in statuses">
+				</select></td>
+			</tr>
+			<tr>
+				<td>
+					<br/>
+					<button data-ng-click="save()" class="">Save</button>
+					&nbsp;
+					<button data-ng-click="clear()" class="">Reset</button>
+					&nbsp;
+					<button data-ng-click="refresh()" class="">Refresh</button>
+				</td>
+			</tr>
+		</table>
+
+		<br />
+		<h3>Search Results</h3> Filter by Name : <input type="text" data-ng-model="nameFilterField" />
+		<br/>
+		<table class="table table-bordered">
+			<tr>
+				<th>Name</th>
+				<th>Job Description</th>
+				<th>Gender</th>
+			</tr>
+			<tr data-ng-repeat="data in dataList | filter:nameFilterField"" class="success">
+				<td>{{ data.empName }}</td>
+				<td>{{ data.empDesc }}</td>
+				<td>{{ data.empGender }}</td>
+			</tr>
+		</table>
+	</div>
+
+</div>

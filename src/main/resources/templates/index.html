@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html data-ng-app="mySpringApp" data-ng-controller="mainController">
+
+<head>
+<!-- Load bootstrap and font-awesome via CDN -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
+
+<script type="text/javascript" src="/lib/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="/lib/angular.js"></script>
+<script type="text/javascript" src="/lib/angular-route.js"></script>
+<script type="text/javascript" src="/js/app.js"></script>
+</head>
+<body>
+
+	<!-- Header and Navigation bar -->
+	<header>
+		<nav class="navbar navbar-default">
+			<div class="container">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="/">Single Page app - Angular + Spring Boot!</a>
+				</div>
+
+				<ul class="nav navbar-nav navbar-right">
+
+					<li data-ng-class="{active : isLinkActive('/')}"><a href="#/"><i class="fa fa-home"></i>Home</a></li>
+
+					<li  data-ng-class="{active : isLinkActive('/login')}" data-ng-show="!authenticated"><a href="#/login"><i class="fa fa-home"></i> Login</a></li>
+
+					<li  data-ng-class="{active : isLinkActive('/data')}" data-ng-show="authenticated" ><a href="#/data"><i class="fa fa-shield"></i> Data Capture</a></li>
+
+					<li  data-ng-show="authenticated"><a href="" data-ng-click="logout()">Logout</a></li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+
+	<!-- Main content and view injected here -->
+	<div id="main">
+
+		<!-- Angular template - Html templates are injected here -->
+		<div data-ng-view=""></div>
+
+	</div>
+
+</body>
+</html>

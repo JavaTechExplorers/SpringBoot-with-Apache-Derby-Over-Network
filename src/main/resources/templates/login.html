@@ -1,0 +1,13 @@
+<div class="alert alert-danger" data-ng-show="error">Problem in login. Please try again.</div>
+
+<form role="form" data-ng-submit="login()">
+	<div class="form-group">
+		<label for="username">Username:</label> 
+		<input type="text" class="form-control" id="username" name="username" data-ng-model="credentials.username" style="width:300px" required="required"/>
+	</div>
+	<div class="form-group">
+		<label for="password">Password:</label> 
+		<input type="password" class="form-control" id="password" name="password" data-ng-model="credentials.password" style="width:300px" required="required"/>
+	</div>
+	<button type="submit" class="btn btn-primary">Submit</button>
+</form>
